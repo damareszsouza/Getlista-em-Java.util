@@ -3,6 +3,8 @@
 
 
 Crie	o	método		getLista		na	classe		ContatoDao	.	Importe		List		de		java.util	:
+
+
 		public	List<Contato>	getLista() {
 						try	{
 										List<Contato>	contatos	=	new	ArrayList<Contato>();
@@ -31,9 +33,12 @@ Crie	o	método		getLista		na	classe		ContatoDao	.	Importe		List		de		java.util	:
 						}
 		}
     
+    
+    
 Vamos	usar	o	método		getLista		para	listar	todos	os	contatos	do	nosso	banco	de	dados.   
 Crie	uma	classe	chamada		TestaLista		com	um	método		main	:
 Crie	um	ContatoDao:
+
 
 
 		ContatoDao	dao	=	new	ContatoDao();
@@ -47,6 +52,7 @@ Itere	nessa	lista	e	imprima	as	informações	dos	contatos:
 						System.out.println("Data	de	Nascimento:	"	+
 																		contato.getDataNascimento().getTime()	+	"\n");
 		}
+	
     
 Rode	o	programa	acima	clicando	em	Run	>	Run	as	>	Java	Application	(aproveite	para	aprender	a
 tecla	de	atalho	para	executar	a	aplicação).  

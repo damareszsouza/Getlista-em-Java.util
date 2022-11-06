@@ -22,8 +22,12 @@ Crie	o	método		getLista		na	classe		ContatoDao	.	Importe		List		de		java.util	:
 														Calendar	data	=	Calendar.getInstance();
 														data.setTime(rs.getDate("dataNascimento"));
 														contato.setDataNascimento(data);
+														
 														//	adicionando	o	objeto	à	lista
+														
+														
 														contatos.add(contato);
+														
 										}
 										rs.close();
 										stmt.close();
@@ -57,6 +61,7 @@ Itere	nessa	lista	e	imprima	as	informações	dos	contatos:
 Rode	o	programa	acima	clicando	em	Run	>	Run	as	>	Java	Application	(aproveite	para	aprender	a
 tecla	de	atalho	para	executar	a	aplicação).  
 
+	
 Assim	como	o	MySQL	existem	outros	bancos	de	dados	gratuitos	e	opensource	na	internet.	O	H2	é
 um	banco	desenvolvido	em	Java	que	pode	ser	acoplado	a	qualquer	aplicação	e	libera	o	cliente	da
 necessidade	de	baixar	qualquer	banco	de	dados	antes	da	instalação	de	um	produto	Java!
@@ -66,19 +71,26 @@ Se	um	projeto	não	usa	nenhuma	das	tecnologias	de	ORM	(Object	Relational	Mapping
 o	mínimo	a	ser	feito	é	seguir	o	DAO.
     
 1.	 A	 impressão	 da	 data	 de	 nascimento	 ficou	 um	 pouco	 estranha.	 Para	 formatá-la,	 pesquise	 sobre	 a
-classe		SimpleDateFormat	.
+classe		SimpleDateFormat.
+	
 2.	 Crie	 uma	 classe	 chamada	 DAOException	 que	 estenda	 de	 	RuntimeException		 e	 utilize-a	 no	 seu
-	ContatoDao	.
+	ContatoDao.
+	
 3.	 Use	cláusulas		where		para	refinar	sua	pesquisa	no	banco	de	dados.	Por	exemplo:		where	nome	like
-'C%'	
-4.	 Crie	o	método		pesquisar		que	recebe	um	id	(int)	e	retorna	um	objeto	do	tipo		Contato	.
+'C%'.
+	
+4.	 Crie	o	método		pesquisar		que	recebe	um	id	(int)	e	retorna	um	objeto	do	tipo		
+	
 1.	 Faça	conexões	para	outros	tipos	de	banco	de	dados	disponíveis.
 Agora	que	você	já	sabe	usar	o		PreparedStatement		para	executar	qualquer	tipo	de	código	SQL	e
 	ResultSet		para	receber	os	dados	retornados	da	sua	pesquisa	fica	simples,	porém	maçante,	escrever	o
 código	de	diferentes	métodos	de	uma	classe	típica	de	DAO.
+	
+	
 Veja	primeiro	o	método		altera	,	que	recebe	um		contato		cujos	valores	devem	ser	alterados:
 
 
+	
 public	void	altera(Contato	contato) {
 				String	sql	=	"update	contatos	set	nome=?,	email=?,	endereco=?,"	+
 												"dataNascimento=?	where	id=?";
@@ -104,6 +116,7 @@ O	código	para	remoção:	começa	com	uma	query	baseada	em	um	contato,	mas	usa	s
 para	executar	a	query	do	tipo	delete:
 
 
+	
 public	void	remove(Contato	contato) {
 				try	{
 								PreparedStatement	stmt	=	connection.prepareStatement("delete	"	+
